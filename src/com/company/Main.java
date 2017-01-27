@@ -6,7 +6,6 @@ public class Main {
 
     public static void main(String[] args) {
 
-
         System.out.println("Option 1: Convert from RGB triplet to hexadecimal\nOption 2: Convert from hexadecimal to RGB triplet\nPlease pick an option");
         Scanner sc = new Scanner(System.in);
         String in = sc.nextLine();
@@ -14,37 +13,38 @@ public class Main {
         while (true)
         {
 
-
             if (in.equalsIgnoreCase("option 1")
                     || in.equalsIgnoreCase("option one")
                     || in.equalsIgnoreCase("RGB to hex")
                     || in.equalsIgnoreCase("RGB triplet to hexadecimal"))
             {
-                System.out.println("please enter an RGB triplet");
+                System.out.println("please enter an RGB triplet and seperate each color value with a comma");
                 Scanner sc2 = new Scanner(System.in);
-                String colorRGB = sc2.next();
+                String color = sc2.nextLine();
 
-                colorRGB.replaceAll("\\s", "");
-
-                String [] color = new String[3];
-                color [0] = colorRGB.substring(0,3);
-                color [1] = colorRGB.substring(3,5);
-                color [2] = colorRGB.substring(5);
-
-                
+                Convert.RGBtoHex(color);
+                break;
 
             }
             else if (in.equalsIgnoreCase("option 2")
                     || in.equalsIgnoreCase("option two")
                     || in.equalsIgnoreCase("hex to RGB")
                     || in.equalsIgnoreCase("hexadecimal to RGB triplet"))
+
             {
+
+                System.out.println("Please enter a hexadecimal");
+                Scanner sc2 = new Scanner(System.in);
+                String color = sc2.nextLine();
+
+                Convert.hexToRGB(color);
+                break;
+
 
             }
             else
             {
                 System.out.println("Please enter a valid option");
-                break;
             }
         }
 
